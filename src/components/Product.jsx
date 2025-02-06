@@ -16,7 +16,7 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  },[]);
+  }, []);
 
   if (status === StatusCode.LOADING) {
     return <p>loading....</p>;
@@ -25,7 +25,6 @@ const Product = () => {
     return <p>Someting went wrong! Try again later</p>;
   }
 
-  
   const addToCart = (product) => {
     console.log("product", product);
     dispatch(add(product));
