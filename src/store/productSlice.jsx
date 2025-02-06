@@ -45,3 +45,5 @@ export const getProducts = createAsyncThunk("products/get", async () => {
 //     dispatch(fetchProducts(result));
 //   };
 // }
+
+

@@ -16,11 +16,7 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-    //api
-    // fetch("https://fakestoreapi.com/products")
-    //   .then((data) => data.json())
-    //   .then((result) => getProducts(result));
-  }, []);
+  },[]);
 
   if (status === StatusCode.LOADING) {
     return <p>loading....</p>;
@@ -29,8 +25,9 @@ const Product = () => {
     return <p>Someting went wrong! Try again later</p>;
   }
 
-  //add
+  
   const addToCart = (product) => {
+    console.log("product", product);
     dispatch(add(product));
   };
 
@@ -49,7 +46,7 @@ const Product = () => {
           <Card.Text>INR: {product.price}</Card.Text>
         </Card.Body>
         <Card.Footer>
-          <Button variant="success" onClick={() => addToCart(product.id)}>
+          <Button variant="success" onClick={() => addToCart(product)}>
             Add Item
           </Button>
         </Card.Footer>

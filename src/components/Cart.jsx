@@ -5,13 +5,14 @@ import { useDispatch } from "react-redux";
 import { remove } from "../store/cartSlice";
 
 const Cart = () => {
-  const  products  = useSelector((state) => state.cart);
-
+  const products = useSelector((state) => state.cart);
+  console.log("products", products);
   const dispatch = useDispatch();
 
   const removeCart = (id) => {
     //action dispatch
     dispatch(remove(id));
+
   };
   const cards = products.map((product) => (
     <div className="col-md-8" style={{ marginBottom: "10px" }}>
@@ -20,7 +21,7 @@ const Cart = () => {
           <Card.Img
             variant="top"
             src={product.image}
-            style={{ width: "100px", height: "130px" }}
+            style={{ width: "100px", height: "130px"}} 
           />
         </div>
         <Card.Body>
@@ -29,7 +30,7 @@ const Cart = () => {
         </Card.Body>
         <Card.Footer>
           <Button variant="success" onClick={() => removeCart(product.id)}>
-            Add Item
+            r
           </Button>
         </Card.Footer>
       </Card>
@@ -37,9 +38,11 @@ const Cart = () => {
   ));
   return (
     <>
-      <div className="row">{cards}</div>
+      <div className="row">{cards}</div> 
     </>
   );
 };
 
 export default Cart;
+
+
